@@ -1,0 +1,7 @@
+tqdm
+scipy
+opencv-python
+scikit-image
+tensorboard
+matplotlib 
+timm==0.5.4 

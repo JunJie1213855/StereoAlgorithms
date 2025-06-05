@@ -1,0 +1,10 @@
+trtexec.exe \
+    --onnx=model.onnx \
+    --saveEngine=model.engine \
+    --timingCacheFile=model-timing.cache \
+    --fp16 \
+    --noTF32 \
+    --builderOptimizationLevel=5 \
+    --maxAuxStreams=4 \
+    --skipInference \
+    --exportLayerInfo="./layerinfo.json" \
