@@ -13,9 +13,15 @@
 <div align="center">
 
 </div>
-MonSter: Marry Monodepth to Stereo Unleashes Power. <a href="https://arxiv.org/abs/2501.08643"><img src="https://img.shields.io/badge/arXiv-2402.11095-b31b1b?logo=arxiv" alt='arxiv'></a>
+MonSter: Marry Monodepth to Stereo Unleashes Power. <a href="https://arxiv.org/abs/2501.08643"><img src="https://img.shields.io/badge/arXiv-2501.08643-b31b1b?logo=arxiv" alt='arxiv'></a>  <a href='https://openbayes.com/console/public/tutorials/IHQPgJwkqUh'><img src='https://img.shields.io/badge/Demo-OpenBayes贝式计算-blue'></a>
 
-Junda Cheng, Longliang Liu, Gangwei Xu, Xianqi Wang, Zhaoxing Zhang, Yong Deng, Jinliang Zang, Yurui Chen, Zhipeng Cai, Xin Yang <br/>
+Junda Cheng, Longliang Liu, Gangwei Xu, Xianqi Wang, Zhaoxing Zhang, Yong Deng, Jinliang Zang, Yurui Chen, Zhipeng Cai, Xin Yang<br/>
+
+## News 
+- `[2025/9]` We have open-sourced our lightweight real-time model, RT-MonSter++, which is now available at https://github.com/Junda24/MonSter-plusplus
+- `[2025/9]` Weights for RT-MonSter++ model released!
+- `[2025/10]` Weights for MonSter++ model released!
+- `[2025/10]` We found a bug in the dataloader code of our sceneflow dataset. This should be a misoperation during code organization, but it has now been fixed.
 
 ##  🌼 Abstract
 MonSter is an innovative approach that effectively harnesses the complementary strengths of monocular depth estimation and stereo matching, thereby fully unlocking the potential of stereo vision. It significantly enhances the depth perception performance of stereo matching in challenging regions such as ill-posed areas and fine structures. Notably, MonSter ranks first across five of the most widely used leaderboards, including SceneFlow, KITTI 2012, KITTI 2015, Middlebury, and ETH3D. Additionally, in terms of zero-shot generalization, MonSter also significantly and consistently outperforms state-of-the-art methods, making it the current model with the best accuracy and generalization capabilities.
@@ -141,15 +147,6 @@ Q: Missing keys when using mix_all.pth
 
 A: I updated the save_disp.py file and solved this problem.
 
-## 🌟 Star History
-
-<a href="https://www.star-history.com/#Junda24/MonSter&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Junda24/MonSter&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Junda24/MonSter&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Junda24/MonSter&type=Date" />
-  </picture>
-</a>
 
 ## ✈️ Citation
 
@@ -157,11 +154,13 @@ If you find our works useful in your research, please consider citing our papers
 
 ```bibtex
 
-@article{cheng2025monster,
-  title={MonSter: Marry Monodepth to Stereo Unleashes Power},
-  author={Cheng, Junda and Liu, Longliang and Xu, Gangwei and Wang, Xianqi and Zhang, Zhaoxing and Deng, Yong and Zang, Jinliang and Chen, Yurui and Cai, Zhipeng and Yang, Xin},
-  journal={arXiv preprint arXiv:2501.08643},
-  year={2025}
+@InProceedings{Cheng_2025_CVPR,
+    author    = {Cheng, Junda and Liu, Longliang and Xu, Gangwei and Wang, Xianqi and Zhang, Zhaoxing and Deng, Yong and Zang, Jinliang and Chen, Yurui and Cai, Zhipeng and Yang, Xin},
+    title     = {MonSter: Marry Monodepth to Stereo Unleashes Power},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2025},
+    pages     = {6273-6282}
 }
 
 ```

@@ -1,0 +1,11 @@
+*.onnx
+*.png
+*.jpg
+*.JPG
+*.tar
+*.ply
+*.yaml
+*.pth
+__pycache__
+pretrain*
+checkpoint*

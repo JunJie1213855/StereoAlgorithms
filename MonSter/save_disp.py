@@ -101,21 +101,20 @@ def demo(args):
             file_stem = os.path.join(output_directory, imfile1.split('/')[-1])
             disp = disp.cpu().numpy().squeeze()
             disp = np.round(disp * 256).astype(np.uint16)
-            # skimage.io.imsave(file_stem, disp)
-            plt.imsave(file_stem, disp, cmap='jet')
+            skimage.io.imsave(file_stem, disp)
             if args.save_numpy:
                 np.save(output_directory / f"{file_stem}.npy", disp.squeeze())
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--restore_ckpt', help="restore checkpoint", default=r"pretrained/kitti.pth")
+    parser.add_argument('--restore_ckpt', help="restore checkpoint", default="/data2/cjd/mono_fusion/checkpoints/kitti.pth")
 
     parser.add_argument('--save_numpy', action='store_true', help='save output as numpy arrays')
     # parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="/data2/cjd/StereoDatasets/kitti//2015/testing/image_2/*_10.png")
     # parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="/data2/cjd/StereoDatasets/kitti/2015/testing/image_3/*_10.png")
-    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="rect_left.png")
-    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="rect_right.png")
+    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="/data2/cjd/StereoDatasets/kitti/2012/testing/colored_0/*_10.png")
+    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="/data2/cjd/StereoDatasets/kitti/2012/testing/colored_1/*_10.png")
 
     parser.add_argument('--output_directory', help="directory to save output", default="kitti_2012")
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')

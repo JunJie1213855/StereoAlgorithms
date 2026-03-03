@@ -21,6 +21,7 @@ except:
 import sys
 sys.path.append('./Depth-Anything-V2-list3')
 from depth_anything_v2.dpt import DepthAnythingV2, DepthAnythingV2_decoder
+
     
 def compute_scale_shift(monocular_depth, gt_depth, mask=None):
     """
@@ -292,7 +293,6 @@ class Monster(nn.Module):
         depth_anything_decoder = DepthAnythingV2_decoder(**mono_model_configs[args.encoder])
         state_dict_dpt = torch.load(f'./pretrained/depth_anything_v2_{args.encoder}.pth', map_location='cpu')
         # state_dict_dpt = torch.load(f'/home/cjd/cvpr2025/fusion/Depth-Anything-V2-list3/depth_anything_v2_{args.encoder}.pth', map_location='cpu')
-        
         depth_anything.load_state_dict(state_dict_dpt, strict=True)
         depth_anything_decoder.load_state_dict(state_dict_dpt, strict=False)
         self.mono_encoder = depth_anything.pretrained

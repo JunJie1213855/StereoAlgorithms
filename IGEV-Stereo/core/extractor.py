@@ -333,7 +333,7 @@ class Feature(SubModule):
             pretrained=pretrained, 
             features_only=True
             )
-        layers = [1,2,3,5,6]
+        layers = [1, 2, 3, 5, 6]
         chans = [16, 24, 32, 96, 160]
         self.conv_stem = model.conv_stem
         self.bn1 = model.bn1

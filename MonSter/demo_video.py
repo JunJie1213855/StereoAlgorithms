@@ -7,9 +7,9 @@ import numpy as np
 import torch
 from tqdm import tqdm
 from pathlib import Path
-from core.monster import Monster 
+from monster import Monster 
 
-from core.utils.utils import InputPadder
+from utils.utils import InputPadder
 from PIL import Image
 from matplotlib import pyplot as plt
 import os
@@ -135,12 +135,12 @@ def demo(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--restore_ckpt', help="restore checkpoint", default="./pretrained/kitti.pth")
+    parser.add_argument('--restore_ckpt', help="restore checkpoint", default="/data2/cjd/mono_fusion/checkpoints/mix_all.pth")
 
     parser.add_argument('--save_numpy', action='store_true', help='save output as numpy arrays')
 
-    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="left_rect.png")
-    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="right_rect.png")
+    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="/data/cjd/kitti_odometry/dataset/sequences/00/image_2/*.png")
+    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="/data/cjd/kitti_odometry/dataset/sequences/00/image_3/*.png")
 
     parser.add_argument('--output_directory', help="directory to save output", default="kitti")
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')

@@ -160,10 +160,8 @@ class SceneFlowDatasets(StereoDataset):
 
         original_length = len(self.disparity_list)
         root = self.root
-        # left_images = sorted( glob(osp.join(root, self.dstype, split, '*/left/*.png')) )
-        # right_images = [ image_file.replace('left', 'right') for image_file in left_images ]
-        right_images = sorted( glob(osp.join(root, self.dstype, split, '*/*/right/*.png')) )
-        left_images = [ im.replace('right', 'left') for im in right_images ]
+        left_images = sorted( glob(osp.join(root, self.dstype, split, '*/left/*.png')) )
+        right_images = [ image_file.replace('left', 'right') for image_file in left_images ]
         disparity_images = [ im.replace(self.dstype, 'disparity').replace('.png', '.pfm') for im in left_images ]
 
         for img1, img2, disp in zip(left_images, right_images, disparity_images):
@@ -177,10 +175,8 @@ class SceneFlowDatasets(StereoDataset):
 
         original_length = len(self.disparity_list)
         root = self.root
-        # left_images = sorted( glob(osp.join(root, self.dstype, split, '*/*/*/left/*.png')) )
-        # right_images = [ image_file.replace('left', 'right') for image_file in left_images ]
-        right_images = sorted( glob(osp.join(root, self.dstype, split, '*/*/right/*.png')) )
-        left_images = [ im.replace('right', 'left') for im in right_images ]
+        left_images = sorted( glob(osp.join(root, self.dstype, split, '*/*/*/left/*.png')) )
+        right_images = [ image_file.replace('left', 'right') for image_file in left_images ]
         disparity_images = [ im.replace(self.dstype, 'disparity').replace('.png', '.pfm') for im in left_images ]
 
         for img1, img2, disp in zip(left_images, right_images, disparity_images):
