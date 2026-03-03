@@ -15,3 +15,5 @@ filenames
 *.ckpt
 *.json
 *output*
+*.gif
+teaser
