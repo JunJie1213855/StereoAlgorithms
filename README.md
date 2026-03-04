@@ -14,9 +14,7 @@ A comprehensive collection of state-of-the-art stereo matching algorithms for de
 
 - [Overview](#overview)
 - [Featured Algorithms](#featured-algorithms)
-- [Performance Comparison](#performance-comparison)
 - [Installation](#installation)
-- [Datasets](#datasets)
 - [Quick Start](#quick-start)
 - [Algorithm Selection Guide](#algorithm-selection-guide)
 - [Citation](#citation)
@@ -78,27 +76,8 @@ This repository brings together multiple cutting-edge approaches for stereo matc
 |--------|-------------|
 | **[plyregis](plyregis/)** | Point cloud registration and fusion system (Chinese) |
 
-## Performance Comparison
-
-| Algorithm | SceneFlow EPE [dwn] | KITTI 2015 D1-all [%] | Middlebury [%] | ETH3D [%] | Mobile-Friendly |
-|-----------|:-------------------:|:---------------------:|:--------------:|:---------:|:---------------:|
-| **MonSter** | **0.71** | **1.45** | **0.89** | **0.41** | [ ] |
-| **MonSter++** | - | **~1.2** | - | ~0.5 | [ ] |
-| **FoundationStereo** | - | ~1.5 | **1st** | **1st** | [ ] |
-| **S²M²** | - | ~1.6 | **1st V3** | **1st** | [ ] |
-| **IGEV++** | 0.78 | 1.58 | 1.12 | 0.52 | [ ] |
-| **GGEV** | - | - | - | - | [x] |
-| **RAFT-Stereo** | 0.85 | 1.72 | 1.28 | 0.61 | [ ] |
-| **MoCha-Stereo** | 0.92 | 1.89 | 1.35 | 0.68 | [ ] |
-| **Fast-ACVNet+** | 0.59 | 2.01 | - | - | [ ] |
-| **MobileStereoNet** | 1.14 | 2.42 | - | - | [x] |
-| **LiteAnyStereo** | - | ~2.5 | - | - | [x] |
-| **PSMNet** | 1.09 | 2.32 | - | - | [ ] |
-
-*[ ] Lower values are better. Values are approximations from respective papers.*
 
 ## Installation
-
 ### Prerequisites
 
 - NVIDIA GPU with CUDA support (recommended RTX 3090/4090 or better)
@@ -176,32 +155,8 @@ conda activate mobilestereonet
 - **[Sintel Stereo](http://sintel.is.tue.mpg.de/stereo)** - CGI movie scenes
 - **[DrivingStereo](https://drivingstereo-dataset.github.io/)** - Real-world driving
 
-### Dataset Organization
-
-Create a `datasets/` directory with the following structure:
-
-```
-datasets/
-├── FlyingThings3D/
-│   ├── frames_finalpass/
-│   └── disparity/
-├── Monkaa/
-├── Driving/
-├── KITTI/
-│   ├── KITTI_2015/
-│   └── KITTI_2012/
-├── Middlebury/
-│   └── MiddEval3/
-├── ETH3D/
-│   ├── two_view_training/
-│   └── two_view_testing/
-└── ...
-```
 
 ## Quick Start
-
-### 1. Pretrained Model Demo
-
 Most algorithms provide pretrained models and demo scripts:
 
 ```bash
@@ -229,39 +184,6 @@ cd mobilestereonet
 python prediction.py --loadckpt ./checkpoints/pretrained.ckpt
 ```
 
-### 2. Training
-
-Each algorithm supports training on various datasets:
-
-```bash
-# Train on SceneFlow (common starting point)
-cd RAFT-Stereo
-python train_stereo.py --batch_size 8 --mixed_precision
-
-cd IGEV-plusplus
-python train_stereo.py --train_datasets sceneflow
-
-cd MonSter
-CUDA_VISIBLE_DEVICES=0,1,2,3 accelerate launch train_sceneflow.py
-```
-
-### 3. Evaluation
-
-Evaluate trained models on benchmark datasets:
-
-```bash
-# KITTI evaluation
-cd MonSter
-python save_disp.py  # Generate submission files
-
-# Middlebury evaluation
-cd RAFT-Stereo
-python evaluate_stereo.py --dataset middlebury_H
-
-# Zero-shot generalization
-cd IGEV-plusplus
-python evaluate_stereo.py --dataset kitti --restore_ckpt ./pretrained/sceneflow.pth
-```
 
 ## Algorithm Selection Guide
 
@@ -273,7 +195,8 @@ python evaluate_stereo.py --dataset kitti --restore_ckpt ./pretrained/sceneflow.
 | **MonSter++** | Multi-view stereo | Unified framework |
 | **FoundationStereo** | Zero-shot generalization | Foundation model approach |
 | **IGEV++** | Large disparities | Excellent in textureless regions |
-| **RAFT-Stereo** | Well-balanced | Extensive documentation |
+| **S2M2 - XL** | Large disparities | Excellent in textureless regions |
+
 
 ### For Real-Time Applications
 
@@ -283,6 +206,7 @@ python evaluate_stereo.py --dataset kitti --restore_ckpt ./pretrained/sceneflow.
 | **GGEV** | Fast | Good | Optimized for real-time |
 | **MobileStereoNet** | Very Fast | Moderate | Mobile-optimized |
 | **LiteAnyStereo** | Very Fast | Good | Efficient zero-shot |
+| **S2M2 - S** | Fast | Good | Efficient zero-shot |
 
 ### For Robustness & Generalization
 
@@ -300,6 +224,8 @@ python evaluate_stereo.py --dataset kitti --restore_ckpt ./pretrained/sceneflow.
 | **PSMNet** | Classic architecture, easy to understand |
 | **RAFT-Stereo** | Well-documented, iterative approach |
 | **MobileStereoNet** | Simpler architecture, good starting point |
+
+
 
 ## Acknowledgments
 
