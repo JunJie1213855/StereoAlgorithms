@@ -49,10 +49,10 @@ def demo(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--restore_ckpt', help="restore checkpoint", default="pretrained\\Selective-IGEV\\kitti\\kitti15.pth")
+    parser.add_argument('--restore_ckpt', help="restore checkpoint", default="pretrained/middlebury_finetune.pth")
     parser.add_argument('--save_numpy', action='store_true', help='save output as numpy arrays')
-    parser.add_argument('-l', '--left_img', help="path to all first (left) frames", default="E:\\dataset\\ETH3d\\lakeside_1l\\im0.png")
-    parser.add_argument('-r', '--right_img', help="path to all second (right) frames", default="E:\\dataset\\ETH3d\\lakeside_1l\\im1.png")
+    parser.add_argument('-l', '--left_img', help="path to all first (left) frames", default="left.png")
+    parser.add_argument('-r', '--right_img', help="path to all second (right) frames", default="right.png")
     parser.add_argument('--output_directory', help="directory to save output", default="./output")
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')
     parser.add_argument('--valid_iters', type=int, default=32, help='number of flow-field updates during forward pass')
