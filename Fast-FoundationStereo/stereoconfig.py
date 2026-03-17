@@ -81,8 +81,15 @@ class stereoCamera(object):
     def transformTo3D(self,disp_img :np.ndarray ,Q:np.ndarray) -> np.ndarray :
         return cv2.reprojectImageTo3D(disp_img,Q)
     
-    def cat(self, img1, img2, num_colors: int = 8):
-        """拼接两张图像，在中间添加JET colorbar风格的彩色分隔线"""
+    def cat(self, img1, img2, num_colors: int = 32, line_thickness: int = 2):
+        """拼接两张图像，在中间添加JET colorbar风格的彩色分隔线
+
+        Args:
+            img1: 左图像
+            img2: 右图像
+            num_colors: 分隔线间隔（数值越大间隔越宽）
+            line_thickness: 分隔线粗细
+        """
         size = img1.shape
         height, width = size[:2]
 
@@ -96,15 +103,18 @@ class stereoCamera(object):
             img[:, width:2 * width, :] = img2
 
         # 使用彩色分隔线 - 根据行位置比例计算颜色
-        num_lines = height // num_colors
         for i in range(0, height, num_colors):
             # 使用行位置的比例 [0, 255]
             color_idx = int(i / height * 255)
             color = self._get_colorbar_color(color_idx)
-            if img1.ndim == 2:
-                img[i, :] = color[0]
-            else:
-                img[i, :, :] = color
+            # 绘制粗分隔线
+            for t in range(line_thickness):
+                row = i + t
+                if row < height:
+                    if img1.ndim == 2:
+                        img[row, :] = color[0]
+                    else:
+                        img[row, :, :] = color
 
         return img.astype(np.uint8)
 
