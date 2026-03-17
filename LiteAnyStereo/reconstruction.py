@@ -38,15 +38,6 @@ import trimesh
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s')
 
-
-def remove_light(img: np.ndarray):
-    """去除图像中的高亮区域"""
-    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    _, mask = cv2.threshold(img_gray, 225, 255, cv2.THRESH_BINARY)
-    dst = cv2.inpaint(img, mask, 3, cv2.INPAINT_TELEA)
-    return dst
-
-
 def create_ply(points_3d: np.ndarray, image: np.ndarray, filename):
     """创建PLY点云文件"""
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -154,12 +145,12 @@ def inference(left_img: np.ndarray, right_img: np.ndarray, model, max_disp=192):
 
         print(f"Input shape: {left_tensor.shape}")
         # 预热
-        for _ in range(10):
-            model(left_tensor, right_tensor, max_disp=max_disp, test_mode=True)
-        # 推理
+        # for _ in range(10):
+        #     model(left_tensor, right_tensor, max_disp=max_disp, test_mode=True)
+        # # 推理
         start = time.time()
-        for _ in range(50):
-            model(left_tensor, right_tensor, max_disp=max_disp, test_mode=True)
+        # for _ in range(50):
+        model(left_tensor, right_tensor, max_disp=max_disp, test_mode=True)
         end = time.time()
         print(f"Inference time: {((end - start ) / 50):.5f}s")
         print(f"Model Speed :{(50 / (end - start )):.5f} FPS ")
@@ -306,9 +297,13 @@ if __name__ == '__main__':
 
     # 图像输入
     parser.add_argument("--left_img", "-l",
-                        default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/test/1280/left/Explorer_HD720_SN21067_21-14-50.jpg")
+                        default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/testpicure/1280/left/Explorer_HD720_SN21067_21-47-35.jpg")
     parser.add_argument("--right_img", "-r",
-                        default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/test/1280/right/Explorer_HD720_SN21067_21-14-50.jpg")
+                        default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/testpicure/1280/right/Explorer_HD720_SN21067_21-47-35.jpg")
+    # parser.add_argument("--left_img", "-l",
+    #                     default=r"./left.png")
+    # parser.add_argument("--right_img", "-r",
+    #                     default=r"./right.png")
     parser.add_argument("-p", "--param_file", default=r"param/zed1280.yaml",
                         help="path to stereo camera calibration file (YAML/XML)")
 

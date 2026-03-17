@@ -35,9 +35,9 @@ def export(args:argparse.Namespace):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--restore_ckpt', help="restore checkpoint", default='./pretrained/pth/middlebury.pth')
+    parser.add_argument('--restore_ckpt', help="restore checkpoint", default='pretrained/middlebury.pth')
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')
-    parser.add_argument('--valid_iters', type=int, default=32, help='number of flow-field updates during forward pass')
+    parser.add_argument('--valid_iters', type=int, default=4, help='number of flow-field updates during forward pass')
 
     # Architecture choices
     parser.add_argument('--hidden_dims', nargs='+', type=int, default=[128]*3, help="hidden state and context dimensions")
@@ -48,12 +48,13 @@ if __name__ == '__main__':
     parser.add_argument('--n_downsample', type=int, default=2, help="resolution of the disparity field (1/2^K)")
     parser.add_argument('--slow_fast_gru', action='store_true', help="iterate the low-res GRUs more frequently")
     parser.add_argument('--n_gru_layers', type=int, default=3, help="number of hidden GRU levels")
-    parser.add_argument('--max_disp', type=int, default=256, help="max disp of geometry encoding volume")
     parser.add_argument("--test-mode",default=True,help="the mode of model")
+    parser.add_argument('--max_disp', type=int, default=192, help="max disp of geometry encoding volume")
+
 
     # input
-    parser.add_argument("--onnx-path",default="./model.onnx",help="the path of output onnx")
-    parser.add_argument("--input-shape",default=(480, 640),nargs=2,help="the shape of input image")
+    parser.add_argument("--onnx-path",default="./model_376_672.onnx",help="the path of output onnx")
+    parser.add_argument("--input-shape",default=(376, 672),nargs=2,help="the shape of input image")
 
     args = parser.parse_args()
 

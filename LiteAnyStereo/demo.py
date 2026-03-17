@@ -13,7 +13,7 @@ import trimesh
 
 if __name__=="__main__":
   parser = argparse.ArgumentParser()
-  parser.add_argument('--stereo_file', default='./assets/Explorer_HD2K_SN28883284_20-36-55.png', type=str)
+  parser.add_argument('--stereo_file', default='./assets/Explorer_HD2K_SN28883284_19-56-16.png', type=str)
   parser.add_argument('--restore_ckpt', default='pretrained/LiteAnyStereo.pth', type=str, help='pretrained model path')
   parser.add_argument('--out_dir', default='./output-vis/20-36-55', type=str, help='the directory to save results')
   parser.add_argument('--scale', default=1, type=float, help='downsize the image by scale, must be <=1')
@@ -99,14 +99,15 @@ if __name__=="__main__":
 
   img0_ori = img0.copy()
   logging.info(f"img0: {img0.shape}")
-
+  tmp = torch.as_tensor(img0).cuda().float()[None]
+  # NHWC -> NCHW 
   img0 = torch.as_tensor(img0).cuda().float()[None].permute(0,3,1,2)
   img1 = torch.as_tensor(img1).cuda().float()[None].permute(0,3,1,2)
   padder = InputPadder(img0.shape, divis_by=32)
   img0, img1 = padder.pad(img0, img1)
   disp = model(img0, img1, test_mode=True)
   disp = padder.unpad(disp.float())
-  disp = disp.data.cpu().numpy().reshape(H,W//2)
+  disp = disp.data.cpu().numpy().reshape(H, W//2)
   vis = vis_disparity(disp)
   vis = np.concatenate([img0_ori, vis], axis=1)
   imageio.imwrite(f'{args.out_dir}/vis.png', vis)

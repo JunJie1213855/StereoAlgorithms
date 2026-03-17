@@ -275,7 +275,7 @@ def main(args:argparse.Namespace):
 ### 3D 重建
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_type', default='M', type=str,
+    parser.add_argument('--model_type', default='S', type=str,
                         help='select model type: S,M,L,XL')
     parser.add_argument('--num_refine', default=5, type=int,
                         help='number of local iterative refinement')
@@ -286,8 +286,8 @@ if __name__ == '__main__':
     parser.add_argument('--output_directory', help="directory to save output", default="./demo-output/")
     parser.add_argument("--showrecitied",default=True,help="是否显示矫正的左右图")
 
-    parser.add_argument("--left_img","-l",default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/test/1280/left/Explorer_HD720_SN21067_21-14-47.jpg")
-    parser.add_argument("--right_img","-r",default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/test/1280/right/Explorer_HD720_SN21067_21-14-47.jpg")
+    parser.add_argument("--left_img","-l",default=r"/root/code/C++/TensorRTTemplate/left.png")
+    parser.add_argument("--right_img","-r",default=r"/root/code/C++/TensorRTTemplate/right.png")
     parser.add_argument("-p","--param_file",default=r"param/zed1280.yaml")
     # 3D 重建点云文件的保存路径
     parser.add_argument("--ply_path",default="./data/3d.ply")

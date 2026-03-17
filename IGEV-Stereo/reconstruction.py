@@ -187,7 +187,7 @@ if __name__ == '__main__':
     parser.add_argument('--restore_ckpt', help="restore checkpoint", default='./pretrained/middlebury.pth')
     parser.add_argument('--save_numpy', action='store_true', help='save output as numpy arrays')
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')
-    parser.add_argument('--valid_iters', type=int, default=32, help='number of flow-field updates during forward pass')
+    parser.add_argument('--valid_iters', type=int, default=4, help='number of flow-field updates during forward pass')
 
     # Architecture choices
     parser.add_argument('--hidden_dims', nargs='+', type=int, default=[128]*3, help="hidden state and context dimensions")
@@ -198,15 +198,15 @@ if __name__ == '__main__':
     parser.add_argument('--n_downsample', type=int, default=2, help="resolution of the disparity field (1/2^K)")
     parser.add_argument('--slow_fast_gru', action='store_true', help="iterate the low-res GRUs more frequently")
     parser.add_argument('--n_gru_layers', type=int, default=3, help="number of hidden GRU levels")
-    parser.add_argument('--max_disp', type=int, default=512, help="max disp of geometry encoding volume")
+    parser.add_argument('--max_disp', type=int, default=256, help="max disp of geometry encoding volume")
     
     ## 添加的选项
     parser.add_argument("-sn","--save_name",default="disparity")
     parser.add_argument('--output_directory', help="directory to save output", default="./demo-output/")
     parser.add_argument("--showrecitied",default=True,help="是否显示矫正的左右图")
 
-    parser.add_argument("--left_img","-l",default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/test/1280/left/Explorer_HD720_SN21067_23-39-23.jpg")
-    parser.add_argument("--right_img","-r",default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/test/1280/right/Explorer_HD720_SN21067_23-39-23.jpg")
+    parser.add_argument("--left_img","-l",default=r"/root/code/C++/TensorRTTemplate/left.png")
+    parser.add_argument("--right_img","-r",default=r"/root/code/C++/TensorRTTemplate/right.png")
     parser.add_argument("-p","--param_file",default=r"param/zed1280.yaml")
     # 3D 重建点云文件的保存路径
     parser.add_argument("--ply_path",default="./data/3d.ply")

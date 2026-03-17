@@ -287,6 +287,8 @@ def main(args: argparse.Namespace):
     # 13. 创建点云
     print("Creating point cloud...")
     # 使用Open3D创建点云
+    # 转换原来的颜色
+    left_img_rect_ori = cv2.cvtColor(left_img_rect_ori, cv2.COLOR_RGB2BGR)
     pcd = toOpen3dCloud(xyz_map.reshape(-1, 3), left_img_rect_ori.reshape(-1, 3))
 
     # 裁剪深度范围

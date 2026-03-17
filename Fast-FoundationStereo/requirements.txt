@@ -1,0 +1,19 @@
+# === Model & inference ===
+timm
+einops
+omegaconf
+scipy
+numpy
+scikit-image
+opencv-contrib-python
+imageio
+pyyaml
+open3d
+
+# === TensorRT (optional — uncomment if needed) ===
+# onnx
+# onnxruntime-gpu
+# tensorrt-cu12
+# tensorrt-lean-cu12
+# tensorrt-dispatch-cu12
+# nvidia-modelopt[torch]

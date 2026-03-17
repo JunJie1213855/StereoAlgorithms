@@ -76,12 +76,12 @@ def demo(args:argparse.Namespace):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--restore_ckpt', help="restore checkpoint", default='./pretrained/pth/middlebury.pth')
+    parser.add_argument('--restore_ckpt', help="restore checkpoint", default='./pretrained/middlebury.pth')
     parser.add_argument('--save_numpy', action='store_true', help='save output as numpy arrays')
 
 
-    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frame", default="./left_rect.png")
-    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frame", default="./right_rect.png")
+    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frame", default="./rect_left.png")
+    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frame", default="./rect_right.png")
     # parser.add_argument("-g", "--ground_truth",help="path to all ground truth frame",default="E:\\dataset\\kitti\\KITTI_2015\\training\\disp_noc_0\\000053_10.png")
 
     # parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="E:\\dataset\\Slam\\visual\\VBR\\vbr\\left\\1.jpg")
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     # parser.add_argument('--output_path', help="directory to save output", default="E:\\客户\\研究生毕设\\数据集\\IGEV_dataset\\MiddleBury\\2014\\trainingH\\Adirondack\\1.png")
     parser.add_argument('--output_directory', help="directory to save output", default="./demo-output/")
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')
-    parser.add_argument('--valid_iters', type=int, default=32, help='number of flow-field updates during forward pass')
+    parser.add_argument('--valid_iters', type=int, default=4, help='number of flow-field updates during forward pass')
 
     # Architecture choices
     parser.add_argument('--hidden_dims', nargs='+', type=int, default=[128]*3, help="hidden state and context dimensions")
