@@ -16,6 +16,7 @@ A comprehensive collection of state-of-the-art stereo matching algorithms for de
 - [Featured Algorithms](#featured-algorithms)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
+- [Visual Results](#visual-results)
 - [Algorithm Selection Guide](#algorithm-selection-guide)
 - [Citation](#citation)
 - [Acknowledgments](#acknowledgments)
@@ -183,6 +184,115 @@ python scripts/run_demo.py --left_file ./assets/left.png \
 cd mobilestereonet
 python prediction.py --loadckpt ./checkpoints/pretrained.ckpt
 ```
+
+
+## Visual Results
+
+Below are sample outputs (left image → predicted disparity) produced by each algorithm in this collection. Click any image to open the full-resolution version. Disparity maps are visualized using the standard jet/turbo colormap — warmer colors (red/yellow) indicate closer pixels, cooler colors (blue/purple) indicate farther pixels.
+
+### Selective-IGEV
+
+<table>
+  <tr>
+    <th align="center">Left Image</th>
+    <th align="center">Disparity Map</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="Selective-Stereo/Selective-IGEV/left.png" width="480"></td>
+    <td align="center"><img src="Selective-Stereo/Selective-IGEV/output/disparity.png" width="480"></td>
+  </tr>
+</table>
+
+### IGEV-Stereo
+
+<table>
+  <tr>
+    <th align="center">Rectified Left</th>
+    <th align="center">Disparity Map</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="IGEV-Stereo/rect_left.png" width="480"></td>
+    <td align="center"><img src="IGEV-Stereo/demo-output/disparity.png" width="480"></td>
+  </tr>
+</table>
+
+### MonSter
+
+<table>
+  <tr>
+    <th align="center">Rectified Left</th>
+    <th align="center">Disparity Map</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="MonSter/rect_left.png" width="480"></td>
+    <td align="center"><img src="MonSter/demo-output/disparity.png" width="480"></td>
+  </tr>
+</table>
+
+### RT-MonSter++
+
+<table>
+  <tr>
+    <th align="center">Rectified Left</th>
+    <th align="center">Disparity Map</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="MonSter-plusplus/RT-MonSter++/rect_left.png" width="480"></td>
+    <td align="center"><img src="MonSter-plusplus/RT-MonSter++/demo-output/disparity.png" width="480"></td>
+  </tr>
+</table>
+
+### S²M²
+
+<table>
+  <tr>
+    <th align="center">Rectified Left</th>
+    <th align="center">Disparity Map</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="s2m2/rect_left.png" width="480"></td>
+    <td align="center"><img src="s2m2/demo-output/disparity.png" width="480"></td>
+  </tr>
+</table>
+
+### FoundationStereo
+
+<table>
+  <tr>
+    <th align="center">Left Image</th>
+    <th align="center">Disparity Map</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="FoundationStereo/assets/left.png" width="480"></td>
+    <td align="center"><img src="FoundationStereo/output/disparity.png" width="480"></td>
+  </tr>
+</table>
+
+### LiteAnyStereo
+
+<table>
+  <tr>
+    <th align="center">Left Image</th>
+    <th align="center">Disparity Map</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="LiteAnyStereo/left.png" width="480"></td>
+    <td align="center"><img src="LiteAnyStereo/output/disparity.png" width="480"></td>
+  </tr>
+</table>
+
+### GGEV
+
+<table>
+  <tr>
+    <th align="center">Left Image</th>
+    <th align="center">Disparity Map</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="GGEV/demo-imgs/sceneflow/im0.png" width="480"></td>
+    <td align="center"><img src="GGEV/reconstruction_output/disparity.png" width="480"></td>
+  </tr>
+</table>
 
 
 ## Algorithm Selection Guide
