@@ -53,8 +53,8 @@ if __name__ == '__main__':
 
 
     # input
-    parser.add_argument("--onnx-path",default="./model_376_672.onnx",help="the path of output onnx")
-    parser.add_argument("--input-shape",default=(376, 672),nargs=2,help="the shape of input image")
+    parser.add_argument("--onnx-path",default="./igev_480_1280.onnx",help="the path of output onnx")
+    parser.add_argument("--input-shape",default=(480, 1280),nargs=2,help="the shape of input image")
 
     args = parser.parse_args()
 

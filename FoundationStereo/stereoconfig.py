@@ -154,25 +154,72 @@ class stereoCamera(object):
         """转换为点云图"""
         return cv2.reprojectImageTo3D(disp_img, Q)
 
-    def cat(self, img1, img2):
-        """拼接左右图像用于可视化"""
+    def cat(self, img1, img2, num_colors: int = 32, line_thickness: int = 2):
+        """拼接两张图像，在中间添加JET colorbar风格的彩色分隔线
+
+        Args:
+            img1: 左图像
+            img2: 右图像
+            num_colors: 分隔线间隔（数值越大间隔越宽）
+            line_thickness: 分隔线粗细
+        """
+        size = img1.shape
+        height, width = size[:2]
+
         if img1.ndim == 2:
-            size = img1.shape
-            img = np.zeros((size[0], size[1] * 2))
-            img[:, 0:size[1]] = img1
-            img[:, size[1]:2 * size[1]] = img2
-            for i in range(size[0]):
-                if i % 32 == 0:
-                    img[i, :] = 0
+            img = np.zeros((height, width * 2), dtype=np.uint8)
+            img[:, 0:width] = img1
+            img[:, width:2 * width] = img2
         else:
-            size = img1.shape
-            img = np.zeros((size[0], size[1] * 2, size[2]))
-            img[:, 0:size[1], :] = img1
-            img[:, size[1]:2 * size[1], :] = img2
-            for i in range(size[0]):
-                if i % 32 == 0:
-                    img[i, :, :] = 0
+            img = np.zeros((height, width * 2, size[2]), dtype=np.uint8)
+            img[:, 0:width, :] = img1
+            img[:, width:2 * width, :] = img2
+
+        # 使用彩色分隔线 - 根据行位置比例计算颜色
+        for i in range(0, height, num_colors):
+            # 使用行位置的比例 [0, 255]
+            color_idx = int(i / height * 255)
+            color = self._get_colorbar_color(color_idx)
+            # 绘制粗分隔线
+            for t in range(line_thickness):
+                row = i + t
+                if row < height:
+                    if img1.ndim == 2:
+                        img[row, :] = color[0]
+                    else:
+                        img[row, :, :] = color
+
         return img.astype(np.uint8)
+
+    def _get_colorbar_color(self, idx: int) -> int:
+        """获取JET风格colorbar的颜色 (RGB -> BGR)"""
+        # JET colormap: 蓝 -> 青 -> 绿 -> 黄 -> 红
+        # idx 范围 [0, 255]
+        x = idx / 255.0
+
+        if x < 0.25:
+            # 蓝 -> 青
+            r = 0
+            g = int(4 * x * 255)
+            b = 255
+        elif x < 0.5:
+            # 青 -> 绿
+            r = 0
+            g = 255
+            b = int((1 - 4 * (x - 0.25)) * 255)
+        elif x < 0.75:
+            # 绿 -> 黄
+            r = int(4 * (x - 0.5) * 255)
+            g = 255
+            b = 0
+        else:
+            # 黄 -> 红
+            r = 255
+            g = int((1 - 4 * (x - 0.75)) * 255)
+            b = 0
+
+        # 转换为 BGR 用于 OpenCV
+        return np.array([b, g, r], dtype=np.uint8)
 
     def Brief(self):
         """打印相机参数信息"""

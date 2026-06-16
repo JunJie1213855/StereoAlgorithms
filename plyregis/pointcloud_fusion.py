@@ -305,26 +305,26 @@ def main():
     )
     
     # 输入参数
-    parser.add_argument('-i', '--input', nargs='+', required=True,
+    parser.add_argument('-i', '--input', nargs='+', default= "./inputply/*.ply", 
                        help='输入点云文件路径（支持通配符）')
     parser.add_argument('-r', '--reference', type=int, default=0,
                        help='参考点云索引（默认：0）')
     
     # 处理参数
-    parser.add_argument('-v', '--voxel_size', type=float, default=0.02,
+    parser.add_argument('-v', '--voxel_size', type=float, default=0.005, # 越小点云越稠密，但是计算速度满
                        help='体素大小（默认：0.02）')
     parser.add_argument('-m', '--registration_method', 
                        choices=['coarse_to_fine', 'icp', 'colored_icp', 'ndt', 'multiway', 
                               'fpfh_ransac', 'pfh_ransac', 'hybrid_fpfh', 'hybrid_pfh'],
                        default='coarse_to_fine',
                        help='配准方法（默认：coarse_to_fine）')
-    parser.add_argument('-f', '--fusion_method',
+    parser.add_argument('-f', '--fusion_method',                        # 融合方法
                        choices=['simple', 'voxel', 'statistical', 'color_aware', 'mls'],
                        default='color_aware',
                        help='融合方法（默认：color_aware）')
     
     # 输出参数
-    parser.add_argument('-o', '--output', default='./fusion_output',
+    parser.add_argument('-o', '--output', default='./fusion_output',    # 融合结果目录
                        help='输出目录（默认：./fusion_output）')
     parser.add_argument('-s', '--save_intermediate', action='store_true',
                        help='保存中间结果')
