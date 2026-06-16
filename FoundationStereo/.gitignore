@@ -1,5 +1,6 @@
 pretrained_models/*
 output/*
+!output/disparity.png
 *.pyc
 weight/
 __pycache__

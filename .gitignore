@@ -14,7 +14,18 @@ filenames
 *.pth
 *.ckpt
 *.json
-*output*
+**/output/**
+**/demo-output/**
+**/reconstruction_output/**
 *.gif
 teaser
 results
+calibtool
+
+
+# Whitelist disparity.png outputs (used as examples in README.md)
+!/disparity.png
+!**/disparity.png
+!**/output/disparity.png
+!**/demo-output/disparity.png
+!**/reconstruction_output/disparity.png
