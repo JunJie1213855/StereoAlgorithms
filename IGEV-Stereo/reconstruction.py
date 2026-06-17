@@ -205,9 +205,9 @@ if __name__ == '__main__':
     parser.add_argument('--output_directory', help="directory to save output", default="./demo-output/")
     parser.add_argument("--showrecitied",default=True,help="是否显示矫正的左右图")
 
-    parser.add_argument("--left_img","-l",default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/testpicure/1280/left/Explorer_HD720_SN21067_20-31-10.jpg")
-    parser.add_argument("--right_img","-r",default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/testpicure/1280/right/Explorer_HD720_SN21067_20-31-10.jpg")
-    parser.add_argument("-p","--param_file",default=r"param.yaml")
+    parser.add_argument("--left_img","-l",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/left.jpg")
+    parser.add_argument("--right_img","-r",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/right.jpg")
+    parser.add_argument("-p","--param_file",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/zed.yaml")
     # 3D 重建点云文件的保存路径
     parser.add_argument("--ply_path",default="./data/3d.ply")
     

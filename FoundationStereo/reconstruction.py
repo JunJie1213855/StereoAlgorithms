@@ -367,15 +367,17 @@ if __name__ == '__main__':
                         default="./output/")
 
     # 图像输入
-    parser.add_argument("--left_img", "-l",
-                        default=r"/root/code/C++/TensorRTTemplate/left.png",
-                        help="path to left image")
-    parser.add_argument("--right_img", "-r",
-                        default=r"/root/code/C++/TensorRTTemplate/right.png",
-                        help="path to right image")
-    parser.add_argument("-p", "--param_file", default=r"param/zed1280.yaml",
-                        help="path to camera calibration file (K.txt for FoundationStereo, or YAML/XML for stereo calibration)")
-
+    # parser.add_argument("--left_img", "-l",
+    #                     default=r"/root/code/C++/TensorRTTemplate/left.png",
+    #                     help="path to left image")
+    # parser.add_argument("--right_img", "-r",
+    #                     default=r"/root/code/C++/TensorRTTemplate/right.png",
+    #                     help="path to right image")
+    # parser.add_argument("-p", "--param_file", default=r"param/zed1280.yaml",
+    #                     help="path to camera calibration file (K.txt for FoundationStereo, or YAML/XML for stereo calibration)")
+    parser.add_argument("--left_img","-l",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/672x376/left.jpg")
+    parser.add_argument("--right_img","-r",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/672x376/right.jpg")
+    parser.add_argument("-p","--param_file",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/672x376/zed.yaml")
     # 可视化选项
     parser.add_argument("--show_rectified", action='store_true', default=True,
                         help="show rectified left and right images")

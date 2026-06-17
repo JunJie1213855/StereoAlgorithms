@@ -189,10 +189,12 @@ if __name__ == '__main__':
     
     # parser.add_argument("-l","--left_img",default="E:\\dataset\\Slam\\visual\\Euroc\\vic\\cam0\\data\\1413393313505760512.png")
     # parser.add_argument("-r","--right_img",default="E:\\dataset\\Slam\\visual\\Euroc\\vic\\cam1\\data\\1413393313505760512.png")
-    parser.add_argument("-l","--left_img",default="demo-imgs\\github\\left_1.png")
-    parser.add_argument("-r","--right_img",default="demo-imgs\\github\\right_1.png")
-    parser.add_argument("-p","--param_file",default=".\\param\\github.yaml")
-
+    # parser.add_argument("-l","--left_img",default="demo-imgs\\github\\left_1.png")
+    # parser.add_argument("-r","--right_img",default="demo-imgs\\github\\right_1.png")
+    # parser.add_argument("-p","--param_file",default=".\\param\\github.yaml")
+    parser.add_argument("--left_img","-l",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/left.jpg")
+    parser.add_argument("--right_img","-r",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/right.jpg")
+    parser.add_argument("-p","--param_file",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/zed.yaml")
     parser.add_argument("--ply_path",default="./data/3d.ply")
     
     ## 命令行参数

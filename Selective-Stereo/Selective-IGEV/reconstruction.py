@@ -301,13 +301,15 @@ if __name__ == '__main__':
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')
 
     # 图像输入
-    parser.add_argument("--left_img", "-l",
-                        default=r"./left.png")
-    parser.add_argument("--right_img", "-r",
-                        default=r"./right.png")
-    parser.add_argument("-p", "--param_file", default=r"param/zed1280.yaml",
-                        help="path to stereo camera calibration file (YAML/XML)")
-
+    # parser.add_argument("--left_img", "-l",
+    #                     default=r"./left.png")
+    # parser.add_argument("--right_img", "-r",
+    #                     default=r"./right.png")
+    # parser.add_argument("-p", "--param_file", default=r"param/zed1280.yaml",
+    #                     help="path to stereo camera calibration file (YAML/XML)")
+    parser.add_argument("--left_img","-l",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/left.jpg")
+    parser.add_argument("--right_img","-r",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/right.jpg")
+    parser.add_argument("-p","--param_file",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/zed.yaml")
     # 可视化选项
     parser.add_argument("--show_rectified", action='store_true', default=True,
                         help="show rectified left and right images")

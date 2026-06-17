@@ -188,109 +188,71 @@ python prediction.py --loadckpt ./checkpoints/pretrained.ckpt
 
 ## Visual Results
 
-Below are sample outputs (left image → predicted disparity) produced by each algorithm in this collection. Click any image to open the full-resolution version. Disparity maps are visualized using the standard jet/turbo colormap — warmer colors (red/yellow) indicate closer pixels, cooler colors (blue/purple) indicate farther pixels.
+Sample outputs (left image → predicted disparity) for **9 algorithms** across **3 resolutions** (1280×720, 1920×1080, 672×376). All test images and ZED stereo calibration files live in [`example/`](example/). Disparity maps use the standard jet colormap — warmer colors (red/yellow) indicate closer pixels, cooler colors (blue/purple) indicate farther pixels.
 
-### Selective-IGEV
+### 1280 × 720
+
+<p align="center"><strong>Left Image</strong><br><img src="example/1280x720/left.jpg" width="800"></p>
 
 <table>
   <tr>
-    <th align="center">Left Image</th>
-    <th align="center">Disparity Map</th>
+    <td align="center"><img src="example/1280x720/model/fast-acvnet.png" width="320"><br><sub><b>Fast-ACVNet</b></sub></td>
+    <td align="center"><img src="example/1280x720/model/fast-acvnet++.png" width="320"><br><sub><b>Fast-ACVNet++</b></sub></td>
+    <td align="center"><img src="example/1280x720/model/fast-foundationstereo.png" width="320"><br><sub><b>Fast-FoundationStereo</b></sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="Selective-Stereo/Selective-IGEV/left.png" width="480"></td>
-    <td align="center"><img src="Selective-Stereo/Selective-IGEV/output/disparity.png" width="480"></td>
+    <td align="center"><img src="example/1280x720/model/foundationstereo.png" width="320"><br><sub><b>FoundationStereo</b></sub></td>
+    <td align="center"><img src="example/1280x720/model/IGEV.png" width="320"><br><sub><b>IGEV-Stereo</b></sub></td>
+    <td align="center"><img src="example/1280x720/model/liteanystereo.png" width="320"><br><sub><b>LiteAnyStereo</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="example/1280x720/model/monster.png" width="320"><br><sub><b>MonSter</b></sub></td>
+    <td align="center"><img src="example/1280x720/model/s2m2.png" width="320"><br><sub><b>S²M²</b></sub></td>
+    <td align="center"><img src="example/1280x720/model/selective-igev.png" width="320"><br><sub><b>Selective-IGEV</b></sub></td>
   </tr>
 </table>
 
-### IGEV-Stereo
+### 1920 × 1080
+
+<p align="center"><strong>Left Image</strong><br><img src="example/1920x1080/left.jpg" width="800"></p>
 
 <table>
   <tr>
-    <th align="center">Rectified Left</th>
-    <th align="center">Disparity Map</th>
+    <td align="center"><img src="example/1920x1080/model/fast-acvnet.png" width="320"><br><sub><b>Fast-ACVNet</b></sub></td>
+    <td align="center"><img src="example/1920x1080/model/fast-acvnet++.png" width="320"><br><sub><b>Fast-ACVNet++</b></sub></td>
+    <td align="center"><img src="example/1920x1080/model/fast-foundationstereo.png" width="320"><br><sub><b>Fast-FoundationStereo</b></sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="IGEV-Stereo/rect_left.png" width="480"></td>
-    <td align="center"><img src="IGEV-Stereo/demo-output/disparity.png" width="480"></td>
+    <td align="center"><img src="example/1920x1080/model/foundationstereo.png" width="320"><br><sub><b>FoundationStereo</b></sub></td>
+    <td align="center"><img src="example/1920x1080/model/IGEV.png" width="320"><br><sub><b>IGEV-Stereo</b></sub></td>
+    <td align="center"><img src="example/1920x1080/model/liteanystereo.png" width="320"><br><sub><b>LiteAnyStereo</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="example/1920x1080/model/monster.png" width="320"><br><sub><b>MonSter</b></sub></td>
+    <td align="center"><img src="example/1920x1080/model/s2m2.png" width="320"><br><sub><b>S²M²</b></sub></td>
+    <td align="center"><img src="example/1920x1080/model/selective-igev.png" width="320"><br><sub><b>Selective-IGEV</b></sub></td>
   </tr>
 </table>
 
-### MonSter
+### 672 × 376
+
+<p align="center"><strong>Left Image</strong><br><img src="example/672x376/left.jpg" width="800"></p>
 
 <table>
   <tr>
-    <th align="center">Rectified Left</th>
-    <th align="center">Disparity Map</th>
+    <td align="center"><img src="example/672x376/model/fast-acvnet.png" width="320"><br><sub><b>Fast-ACVNet</b></sub></td>
+    <td align="center"><img src="example/672x376/model/fast-acvnet++.png" width="320"><br><sub><b>Fast-ACVNet++</b></sub></td>
+    <td align="center"><img src="example/672x376/model/fast-foundationstereo.png" width="320"><br><sub><b>Fast-FoundationStereo</b></sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="MonSter/rect_left.png" width="480"></td>
-    <td align="center"><img src="MonSter/demo-output/disparity.png" width="480"></td>
-  </tr>
-</table>
-
-### RT-MonSter++
-
-<table>
-  <tr>
-    <th align="center">Rectified Left</th>
-    <th align="center">Disparity Map</th>
+    <td align="center"><img src="example/672x376/model/foundationstereo.png" width="320"><br><sub><b>FoundationStereo</b></sub></td>
+    <td align="center"><img src="example/672x376/model/IGEV.png" width="320"><br><sub><b>IGEV-Stereo</b></sub></td>
+    <td align="center"><img src="example/672x376/model/liteanystereo.png" width="320"><br><sub><b>LiteAnyStereo</b></sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="MonSter-plusplus/RT-MonSter++/rect_left.png" width="480"></td>
-    <td align="center"><img src="MonSter-plusplus/RT-MonSter++/demo-output/disparity.png" width="480"></td>
-  </tr>
-</table>
-
-### S²M²
-
-<table>
-  <tr>
-    <th align="center">Rectified Left</th>
-    <th align="center">Disparity Map</th>
-  </tr>
-  <tr>
-    <td align="center"><img src="s2m2/rect_left.png" width="480"></td>
-    <td align="center"><img src="s2m2/demo-output/disparity.png" width="480"></td>
-  </tr>
-</table>
-
-### FoundationStereo
-
-<table>
-  <tr>
-    <th align="center">Left Image</th>
-    <th align="center">Disparity Map</th>
-  </tr>
-  <tr>
-    <td align="center"><img src="FoundationStereo/assets/left.png" width="480"></td>
-    <td align="center"><img src="FoundationStereo/output/disparity.png" width="480"></td>
-  </tr>
-</table>
-
-### LiteAnyStereo
-
-<table>
-  <tr>
-    <th align="center">Left Image</th>
-    <th align="center">Disparity Map</th>
-  </tr>
-  <tr>
-    <td align="center"><img src="LiteAnyStereo/left.png" width="480"></td>
-    <td align="center"><img src="LiteAnyStereo/output/disparity.png" width="480"></td>
-  </tr>
-</table>
-
-### GGEV
-
-<table>
-  <tr>
-    <th align="center">Left Image</th>
-    <th align="center">Disparity Map</th>
-  </tr>
-  <tr>
-    <td align="center"><img src="GGEV/demo-imgs/sceneflow/im0.png" width="480"></td>
-    <td align="center"><img src="GGEV/reconstruction_output/disparity.png" width="480"></td>
+    <td align="center"><img src="example/672x376/model/monster.png" width="320"><br><sub><b>MonSter</b></sub></td>
+    <td align="center"><img src="example/672x376/model/s2m2.png" width="320"><br><sub><b>S²M²</b></sub></td>
+    <td align="center"><img src="example/672x376/model/selective-igev.png" width="320"><br><sub><b>Selective-IGEV</b></sub></td>
   </tr>
 </table>
 

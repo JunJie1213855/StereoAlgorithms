@@ -60,7 +60,7 @@ def depth2xyzmap(depth:np.ndarray, K, uvs:np.ndarray=None, zmin=0.1):
   return xyz_map
 
 
-def vis_disparity(disp, min_val=None, max_val=None, invalid_thres=np.inf, color_map=cv2.COLORMAP_TURBO, cmap=None, other_output={}):
+def vis_disparity(disp, min_val=None, max_val=None, invalid_thres=np.inf, color_map=cv2.COLORMAP_INFERNO, cmap=None, other_output={}):
   """
   @disp: np array (H,W)
   @invalid_thres: > thres is invalid

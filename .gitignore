@@ -1,31 +1,74 @@
+# ============================================================
+# StereoAlgorithms .gitignore
+# ============================================================
+# Most algorithms produce large model artefacts, intermediate
+# tensors, and per-run outputs that should not be committed.
+# The example/ folder at the repo root is a curated visual
+# showcase (3 resolutions × 9 algorithms) and is whitelisted
+# at the bottom of this file.
+# ============================================================
+
+# ---- Model / engine artefacts --------------------------------
 *.onnx
-*.png
-*.jpg
-*.JPG
-*.tar
-*.ply
-*.yaml
-*.pth
-__pycache__
-pretrain*
-checkpoint*
-filenames
 *.engine
 *.pth
 *.ckpt
-*.json
-**/output/**
-**/demo-output/**
-**/reconstruction_output/**
+*.tar
+*.gz
+*.zip
+*.7z
+
+# ---- 3D / geometry outputs ------------------------------------
+*.ply
+*.glb
+*.obj
+*.npy
+*.npz
+
+# ---- Misc binary outputs --------------------------------------
 *.gif
+*.json
+*.yaml
+
+# ---- Image files (default ignore; whitelisted for example/) ---
+*.png
+*.jpg
+*.JPG
+*.jpeg
+
+# ---- Python / build outputs -----------------------------------
+__pycache__
+*.pyc
+*.pyo
+
+# ---- Training / experiment artefacts --------------------------
+pretrain*
+checkpoint*
+filenames
 teaser
 results
 calibtool
 
+# ---- Per-algorithm output directories -------------------------
+**/output/**
+**/demo-output/**
+**/reconstruction_output/**
 
-# Whitelist disparity.png outputs (used as examples in README.md)
-!/disparity.png
-!**/disparity.png
-!**/output/disparity.png
-!**/demo-output/disparity.png
-!**/reconstruction_output/disparity.png
+
+# ============================================================
+# Whitelist: example/ folder (visual showcase used in README.md)
+#   - 3 resolutions: 1280x720, 1920x1080, 672x376
+#   - Each contains: left.jpg, right.jpg, zed.yaml, model/*.png
+# ============================================================
+!/example/
+!/**/example/
+!/example/**/
+!/**/example/**/
+!/example/**/*.jpg
+!/**/example/**/*.jpg
+!/example/**/*.yaml
+!/**/example/**/*.yaml
+!/example/**/*.png
+!/**/example/**/*.png
+!/example/**/model/
+!/**/example/**/model/

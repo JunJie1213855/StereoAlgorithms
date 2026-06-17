@@ -232,10 +232,14 @@ if __name__ == '__main__':
     parser.add_argument("-sn","--save_name",default="disparity")
     parser.add_argument('--output_directory', help="directory to save output", default="./demo-output/")
     parser.add_argument("--showrecitied",default=True,help="是否显示矫正的左右图")
-    
-    parser.add_argument("--left_img","-l",default=r"/root/code/C++/TensorRTTemplate/left.png")
-    parser.add_argument("--right_img","-r",default=r"/root/code/C++/TensorRTTemplate/right.png")
-    parser.add_argument("-p","--param_file",default=r"param/zed1280.yaml")
+
+    # 图像输入    
+    # parser.add_argument("--left_img","-l",default=r"/root/code/C++/TensorRTTemplate/left.png")
+    # parser.add_argument("--right_img","-r",default=r"/root/code/C++/TensorRTTemplate/right.png")
+    # parser.add_argument("-p","--param_file",default=r"param/zed1280.yaml")
+    parser.add_argument("--left_img","-l",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/672x376/left.jpg")
+    parser.add_argument("--right_img","-r",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/672x376/right.jpg")
+    parser.add_argument("-p","--param_file",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/672x376/zed.yaml")
     # 3D 重建点云文件的保存路径
     parser.add_argument("--ply_path",default="./data/3d.ply")
     

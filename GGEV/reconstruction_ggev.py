@@ -243,15 +243,18 @@ if __name__ == '__main__':
                        help='show 3D point cloud visualization')
 
     # 输入输出路径
-    parser.add_argument('--left_img', '-l', 
-                       default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/test/1280/left/Explorer_HD720_SN21067_21-14-47.jpg",
-                       help="path to left image")
-    parser.add_argument('--right_img', '-r', 
-                       default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/test/1280/right/Explorer_HD720_SN21067_21-14-47.jpg",
-                       help="path to right image")
-    parser.add_argument('--param_file', '-p', 
-                       default="param/zed1280.yaml",
-                       help="path to stereo camera parameters file (xml or yaml)")
+    # parser.add_argument('--left_img', '-l', 
+    #                    default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/test/1280/left/Explorer_HD720_SN21067_21-14-47.jpg",
+    #                    help="path to left image")
+    # parser.add_argument('--right_img', '-r', 
+    #                    default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/test/1280/right/Explorer_HD720_SN21067_21-14-47.jpg",
+    #                    help="path to right image")
+    # parser.add_argument('--param_file', '-p', 
+    #                    default="param/zed1280.yaml",
+    #                    help="path to stereo camera parameters file (xml or yaml)")
+    parser.add_argument("--left_img","-l",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/left.jpg")
+    parser.add_argument("--right_img","-r",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/right.jpg")
+    parser.add_argument("-p","--param_file",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/zed.yaml")
     parser.add_argument('--ply_path', 
                        default="./reconstruction_output/3d.ply",
                        help="path to save PLY point cloud file")

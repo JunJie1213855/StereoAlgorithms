@@ -296,17 +296,19 @@ if __name__ == '__main__':
                         default="./output/")
 
     # 图像输入
-    parser.add_argument("--left_img", "-l",
-                        default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/testpicure/1280/left/Explorer_HD720_SN21067_21-47-35.jpg")
-    parser.add_argument("--right_img", "-r",
-                        default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/testpicure/1280/right/Explorer_HD720_SN21067_21-47-35.jpg")
+    # parser.add_argument("--left_img", "-l",
+    #                     default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/testpicure/1280/left/Explorer_HD720_SN21067_21-47-35.jpg")
+    # parser.add_argument("--right_img", "-r",
+    #                     default=r"/mnt/d/dataset/CameraCalib/stereoexample_github/stereoexample_zed/testpicure/1280/right/Explorer_HD720_SN21067_21-47-35.jpg")
     # parser.add_argument("--left_img", "-l",
     #                     default=r"./left.png")
     # parser.add_argument("--right_img", "-r",
     #                     default=r"./right.png")
-    parser.add_argument("-p", "--param_file", default=r"param/zed1280.yaml",
-                        help="path to stereo camera calibration file (YAML/XML)")
-
+    # parser.add_argument("-p", "--param_file", default=r"param/zed1280.yaml",
+    #                     help="path to stereo camera calibration file (YAML/XML)")
+    parser.add_argument("--left_img","-l",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/672x376/left.jpg")
+    parser.add_argument("--right_img","-r",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/672x376/right.jpg")
+    parser.add_argument("-p","--param_file",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/672x376/zed.yaml")
     # 可视化选项
     parser.add_argument("--show_rectified", action='store_true',
                         help="show rectified left and right images")

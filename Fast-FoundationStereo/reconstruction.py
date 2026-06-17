@@ -197,7 +197,8 @@ def main(args: argparse.Namespace):
     np.save(f'{args.out_dir}/disp.npy', disp)
 
     # 可视化视差
-    vis = vis_disparity(disp, cmap=None, color_map=cv2.COLORMAP_TURBO)
+    vis = vis_disparity(disp, cmap=None, color_map=cv2.COLORMAP_JET)
+    imageio.imwrite(f'{args.out_dir}/disp.png', vis)
     vis = np.concatenate([img0_ori, img1_ori, vis], axis=1)
     imageio.imwrite(f'{args.out_dir}/disp_vis.png', vis)
 
@@ -282,14 +283,18 @@ if __name__ == '__main__':
     parser.add_argument('--model_dir', default=f'{code_dir}/weights/23-36-37/model_best_bp2_serialize.pth', type=str)
 
     # 输入图像
-    parser.add_argument('--left_img', '-l', default=r"/root/code/C++/TensorRTTemplate/left.png", type=str,
-                        help='Left image path')
-    parser.add_argument('--right_img', '-r', default=r"/root/code/C++/TensorRTTemplate/right.png", type=str,
-                        help='Right image path')
+    # parser.add_argument('--left_img', '-l', default=r"/root/code/C++/TensorRTTemplate/left.png", type=str,
+    #                     help='Left image path')
+    # parser.add_argument('--right_img', '-r', default=r"/root/code/C++/TensorRTTemplate/right.png", type=str,
+    #                     help='Right image path')
 
-    # 相机标定参数文件 (YAML格式)
-    parser.add_argument('-p', '--param_file', default=f'{code_dir}/param/zed1280.yaml', type=str,
-                        help='Camera calibration parameters in YAML format')
+    # # 相机标定参数文件 (YAML格式)
+    # parser.add_argument('-p', '--param_file', default=f'{code_dir}/param/zed1280.yaml', type=str,
+    #                     help='Camera calibration parameters in YAML format')
+
+    parser.add_argument("--left_img","-l",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/left.jpg")
+    parser.add_argument("--right_img","-r",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/right.jpg")
+    parser.add_argument("-p","--param_file",default=r"/root/code/python/StereoMatch/StereoAlgorithms/example/1920x1080/zed.yaml")
 
     # 输出目录
     parser.add_argument('--out_dir', default=f'{code_dir}/output', type=str)
